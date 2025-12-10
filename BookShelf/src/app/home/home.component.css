@@ -1,0 +1,34 @@
+a {
+  text-decoration: none !important;
+  flex-basis: fit-content;
+}
+
+.error{
+  color: #ff0000;
+}
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 40%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.navbar-nav{
+  right:0;
+  position: absolute;
+}
+
+.nav-link{
+  color: dodgerblue;
+}
+.nav-link:hover{
+  color: #0d6efd;
+}
+
+.dropdown-menu[data-bs-popper] {
+
+  right: 1px !important;
+  left:auto !important;
+}
+
+

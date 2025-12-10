@@ -8,10 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.thymeleaf.spring5.SpringTemplateEngine;
@@ -26,9 +23,17 @@ public class DemoConfig implements WebMvcConfigurer {
     @Autowired
     ApplicationContext applicationContex;
 
+
+        @Override
+        public void addCorsMappings(CorsRegistry registry) {
+            registry.addMapping("/**")
+                    .allowedOrigins("*")
+                    .allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD");
+        }
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry){
         registry.addResourceHandler("/files/view/plain/**").addResourceLocations("/WEB-INF/files/");
+        registry.addResourceHandler("/files/pdf/**").addResourceLocations("/WEB-INF/pdf/");
         //registry.addResourceHandler("/files/view/txt**").addResourceLocations("/WEB-INF/files/");
         registry.addResourceHandler("/files/view/pdf/**").addResourceLocations("/WEB-INF/files/");
         registry.addResourceHandler("/files/view/text/html/**").addResourceLocations("/WEB-INF/files/");

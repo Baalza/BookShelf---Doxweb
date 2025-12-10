@@ -1,0 +1,41 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img
+          class="d-inline-block align-text-top pt-1 img-fluid"
+          src="assets/image/emt-logo-small2.png"
+          alt=""
+          width="80"
+          height="60"
+        />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" routerLink="">Home</a>
+          </li>
+
+
+
+          <li class="nav-item dropdown pe-5 me-5">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
+
+              <fa-icon [icon]="faUser"></fa-icon>
+             {{email}}
+            </a>
+
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
+              <li *ngIf="!isAuth"><a class="dropdown-item"  routerLink="/demo/login">Login</a></li>
+              <li *ngIf="isAuth"><a class="dropdown-item"  (click)="performLogout()">Logout</a></li>
+              <li *ngIf="isAuth"><a class="dropdown-item" routerLink="/demo/qr-code"><button type="button" class="btn btn-primary">Enable 2FA</button></a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
